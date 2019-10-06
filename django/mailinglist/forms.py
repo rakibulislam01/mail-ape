@@ -4,7 +4,7 @@ from .models import MailingList, Subscriber, Message
 
 
 class SubscriberForm(forms.ModelForm):
-    mailing_list = forms.ModelChoiceField(wideget=forms.HiddenInput,
+    mailing_list = forms.ModelChoiceField(widget=forms.HiddenInput,
                                           queryset=MailingList.objects.all(),
                                           disabled=True)
 
@@ -24,7 +24,7 @@ class MessageForm(forms.ModelForm):
 
 
 class MailingListForm(forms.ModelForm):
-    owner = forms.ModelChoiceField(wideget=forms.HiddenInput,
+    owner = forms.ModelChoiceField(widget=forms.HiddenInput,
                                    queryset=get_user_model().objects.all(),
                                    disabled=True)
 
