@@ -9,6 +9,7 @@
     <form action="" method="post">
         {% csrf_token %}
         <p>Are you sure you want to delete {{ mailinglist.name }}?</p>
-        <inpu type="submit" value="Yes" href="{% url "mailinglist:manage_mailinglist" pk=mailinglist.id %}">NO</inpu>
+        <input type="submit" value="Yes" class="btn btn-danger btn-sm">
+        <a class="btn btn-primary btn-lg" href="{% url "mailinglist:manage_mailinglist" pk=mailinglist.id %}">NO</a>
     </form>
 {% endblock %}

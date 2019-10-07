@@ -39,7 +39,7 @@ class SubscribeToMailingListView(CreateView):
 
     def get_initial(self):
         return {
-            'mailing_list': self.kwargs['mailinglist_id']
+            'mailing_list': self.kwargs['mailinglist_pk']
         }
 
     def get_success_url(self):
@@ -49,7 +49,7 @@ class SubscribeToMailingListView(CreateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        mailing_list_id = self.kwargs['mailinglist_id']
+        mailing_list_id = self.kwargs['mailinglist_pk']
         ctx['mailing_list'] = get_object_or_404(
             MailingList, id=mailing_list_id
         )

@@ -6,10 +6,10 @@
 
 {% block body %}
     <h1>{{ mailinglist.name }} Management
-        <a class="btn btn-danger" href="{% url "mailinglist:delete_mailinglist" pk=maillinglist.id %}">Delete</a>
+        <a class="btn btn-danger" href="{% url "mailinglist:delete_mailinglist" pk=mailinglist.id %}">Delete</a>
     </h1>
     <div>
-        <a class="" href="{% url "mailinglist:create_subscriber" mailinglist_pk=mailinglist.id %}">Subscription Link</a>
+        <a class="" href="{% url "mailinglist:subscribe" mailinglist_pk=mailinglist.id %}">Subscription Link</a>
     </div>
 
     <h2>Message</h2>
