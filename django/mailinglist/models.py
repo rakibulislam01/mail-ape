@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
+from . import emails
 
 
 class MailingList(models.Model):
@@ -27,6 +28,16 @@ class Subscriber(models.Model):
 
     class Meta:
         unique_together = ['email', 'mailing_list', ]
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        is_new = self._state.adding or force_insert
+        super().save(force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields)
+        if is_new:
+            self.send_confirmation_email()
+
+    def send_confirmation_email(self):
+        emails.send_confirmation_email(self)
 
 
 class Message(models.Model):

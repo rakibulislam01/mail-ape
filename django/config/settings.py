@@ -132,3 +132,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_URL = 'user:login'
 LOGIN_REDIRECT_URL = 'mailinglist:mailinglist_list'
 LOGOUT_REDIRECT_URL = 'user:login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = 587
+EMAIL_USER_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+MAILING_LIST_FROM_EMAIL = os.getenv('MAILING_LIST_FROM_EMAIL')
+MAILING_LIST_LINK_DOMAIN = os.getenv('MAILING_LIST_LINK_DOMAIN')
